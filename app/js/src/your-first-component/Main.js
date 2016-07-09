@@ -1,6 +1,7 @@
 var Main = React.createClass({
 
     // This sets up the initial state, in ES6 we do this in the constructor (see reactLearnCodeAcademy > 03-flux > Todos.js)
+    // State can be changed, then DOM will rerender
     getInitialState: function(){
         return {
             counter: 0
