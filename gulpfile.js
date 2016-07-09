@@ -30,7 +30,13 @@ var jsLibSrcProd = [
 
 var jsLibSrc = isProduction ? jsLibSrcProd : jsLibSrcDev;
 
-var jsAppSrc = './app/js/src/**/*.js';
+var jsAppSrcRoot = './app/js/src'; 
+var jsAppSrc = [
+        jsAppSrcRoot + '/your-first-component/Button.js', 
+        jsAppSrcRoot + '/your-first-component/Result.js',
+        jsAppSrcRoot + '/your-first-component/Main.js',
+        jsAppSrcRoot + '/**/*.js'
+    ];
 var bldFolder = './app/js/bld';
 
 //
