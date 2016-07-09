@@ -64,3 +64,8 @@ gulp.task('js-app', function () {
 });
 
 gulp.task('default', ['js-lib', 'js-app'], function () { });
+
+gulp.task('watch', ['default'], function () {
+    gulp.watch(jsAppSrc, ['js-app']);
+    
+});
