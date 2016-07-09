@@ -14,6 +14,7 @@ var Main = React.createClass({
         });
     },
 
+    // render is the only required member of a React Class
     render: function(){
         return(
             <div>
