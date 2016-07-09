@@ -1,0 +1,17 @@
+{
+  "name": "reactgettingstarted",
+  "description": "React Getting Started, ES5, following Pluralsight course:",
+  "main": "index.js",
+  "authors": [
+    "Henrik <henrik_mathiesen@hotmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/henrikmathiesen/reactGettingStarted",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
