@@ -4,9 +4,14 @@ var PlayNineGame = React.createClass({
         return {
             selectedNumbers: [],
             usedNumbers: [],
-            numberOfStars: Math.floor(Math.random() * (9 - 1 + 1) + 1),
-            correct: null
+            numberOfStars: this.randomNumberOneToNine(),
+            correct: null,
+            redrawCount: 5
         }
+    },
+
+    randomNumberOneToNine: function(){
+        return Math.floor(Math.random() * (9 - 1 + 1) + 1)
     },
 
     selectNumber: function (selectedNumber) {
@@ -29,9 +34,9 @@ var PlayNineGame = React.createClass({
         });
     },
 
-    checkAnswer: function(){
+    checkAnswer: function () {
         var selectedNumbersSum = 0;
-        for(i = 0; i < this.state.selectedNumbers.length; i +=1) {
+        for (i = 0; i < this.state.selectedNumbers.length; i += 1) {
             selectedNumbersSum += this.state.selectedNumbers[i];
         }
 
@@ -39,13 +44,24 @@ var PlayNineGame = React.createClass({
         this.setState({ correct: correct });
     },
 
-    acceptAnswer: function(){
+    acceptAnswer: function () {
         this.setState({
             usedNumbers: this.state.usedNumbers.concat(this.state.selectedNumbers),
             selectedNumbers: [],
-            numberOfStars: Math.floor(Math.random() * (9 - 1 + 1) + 1),
+            numberOfStars: this.randomNumberOneToNine(),
             correct: null
         })
+    },
+
+    redraw: function () {
+        if(this.state.redrawCount < 1) { return; }
+
+        this.setState({
+            redrawCount: this.state.redrawCount - 1,
+            numberOfStars: this.randomNumberOneToNine(),
+            correct: null,
+            selectedNumbers: []
+        });
     },
 
     render: function () {
@@ -53,12 +69,13 @@ var PlayNineGame = React.createClass({
         var usedNumbers = this.state.usedNumbers;
         var numberOfStars = this.state.numberOfStars;
         var correct = this.state.correct;
+        var redrawCount = this.state.redrawCount;
 
         return (
             <div>
                 <h2>Play Nine</h2>
                 <PlayNineStarsFrame numberOfStars={ numberOfStars } />
-                <PlayNineButtonFrame selectedNumbers={ selectedNumbers } checkAnswer={ this.checkAnswer } correct={ correct } acceptAnswer={this.acceptAnswer} />
+                <PlayNineButtonFrame selectedNumbers={ selectedNumbers } checkAnswer={ this.checkAnswer } correct={ correct } acceptAnswer={this.acceptAnswer} redraw={ this.redraw } redrawCount= { redrawCount } />
                 <PlayNineAnswerFrame selectedNumbers={ selectedNumbers } unSelectNumber={ this.unSelectNumber } />
                 <PlayNineNumbersFrame selectedNumbers={ selectedNumbers } selectNumber={ this.selectNumber } usedNumbers={ usedNumbers } />
             </div>

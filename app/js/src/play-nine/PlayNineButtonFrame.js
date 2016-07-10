@@ -1,9 +1,22 @@
 var PlayNineButtonFrame = React.createClass({
 
+    getInitialState: function(){
+        return {
+            redrawCountOrig: this.props.redrawCount
+        }
+    },
+
+    // componentWillMount: function(){
+    //     redrawCountOrig: this.props.redrawCount;
+    // },
+
     render: function () {
-        var disabled = this.props.selectedNumbers.length === 0;
+        var checkAnswerDisabled = this.props.selectedNumbers.length === 0;
         var correct = this.props.correct;
         var correctMessage = "";
+        var redrawCount = this.props.redrawCount;
+        var redrawMessage = redrawCount > 0 ? "REDRAW" : "REDRAW LIMIT";
+        var redrawDisabled = redrawCount < 1;
 
         switch (correct) {
             case true:
@@ -19,8 +32,9 @@ var PlayNineButtonFrame = React.createClass({
 
         return (
             <div style={{ marginTop: '20px', marginBottom: '20px' }}>
-                <button style={{ width: '200px' }} disabled={disabled} onClick={ this.props.checkAnswer }>=</button>
+                <button style={{ width: '200px' }} disabled={ checkAnswerDisabled } onClick={ this.props.checkAnswer }>=</button>
                 <span>{ correctMessage }</span>
+                <button disabled={ redrawDisabled } onClick={ this.props.redraw }>{ redrawMessage } { redrawCount } / { this.state.redrawCountOrig }</button>
             </div>
         )
     }
