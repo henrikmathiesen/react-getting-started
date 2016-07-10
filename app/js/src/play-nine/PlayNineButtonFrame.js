@@ -7,7 +7,7 @@ var PlayNineButtonFrame = React.createClass({
 
         switch (correct) {
             case true:
-                correctMessage = "That is correct!";
+                correctMessage = <button onClick={ this.props.acceptAnswer }>That is correct! Accept it?</button>;
                 break;
             case false:
                 correctMessage = "That is not correct";

@@ -3,14 +3,15 @@ var PlayNineGame = React.createClass({
     getInitialState: function () {
         return {
             selectedNumbers: [],
+            usedNumbers: [],
             numberOfStars: Math.floor(Math.random() * (9 - 1 + 1) + 1),
             correct: null
         }
     },
 
     selectNumber: function (selectedNumber) {
-        // If selected number already is in array, user cant select it again
-        if (this.state.selectedNumbers.indexOf(selectedNumber) !== -1) { return }
+        // If selected number already is a selected number or a used number, user cant select it again
+        if (this.state.selectedNumbers.indexOf(selectedNumber) !== -1 || this.state.usedNumbers.indexOf(selectedNumber) !== -1) { return }
         this.setState({
             selectedNumbers: this.state.selectedNumbers.concat(selectedNumber),
             correct: null
@@ -38,8 +39,18 @@ var PlayNineGame = React.createClass({
         this.setState({ correct: correct });
     },
 
+    acceptAnswer: function(){
+        this.setState({
+            usedNumbers: this.state.usedNumbers.concat(this.state.selectedNumbers),
+            selectedNumbers: [],
+            numberOfStars: Math.floor(Math.random() * (9 - 1 + 1) + 1),
+            correct: null
+        })
+    },
+
     render: function () {
         var selectedNumbers = this.state.selectedNumbers;
+        var usedNumbers = this.state.usedNumbers;
         var numberOfStars = this.state.numberOfStars;
         var correct = this.state.correct;
 
@@ -47,9 +58,9 @@ var PlayNineGame = React.createClass({
             <div>
                 <h2>Play Nine</h2>
                 <PlayNineStarsFrame numberOfStars={ numberOfStars } />
-                <PlayNineButtonFrame selectedNumbers={ selectedNumbers } checkAnswer={ this.checkAnswer } correct={ correct } />
+                <PlayNineButtonFrame selectedNumbers={ selectedNumbers } checkAnswer={ this.checkAnswer } correct={ correct } acceptAnswer={this.acceptAnswer} />
                 <PlayNineAnswerFrame selectedNumbers={ selectedNumbers } unSelectNumber={ this.unSelectNumber } />
-                <PlayNineNumbersFrame selectedNumbers={ selectedNumbers } selectNumber={ this.selectNumber } />
+                <PlayNineNumbersFrame selectedNumbers={ selectedNumbers } selectNumber={ this.selectNumber } usedNumbers={ usedNumbers } />
             </div>
         )
     }
