@@ -44,6 +44,7 @@ var jsAppSrc = [
         jsAppSrcRoot + '/play-nine/PlayNineAnswerFrame.js',
         jsAppSrcRoot + '/play-nine/PlayNineButtonFrame.js',
         jsAppSrcRoot + '/play-nine/PlayNineNumbersFrame.js',
+        jsAppSrcRoot + '/play-nine/PlayNineDoneFrame.js',
         jsAppSrcRoot + '/play-nine/PlayNineGame.js',
         jsAppSrcRoot + '/**/*.js'
     ];

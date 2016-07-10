@@ -6,11 +6,12 @@ var PlayNineGame = React.createClass({
             usedNumbers: [],
             numberOfStars: this.randomNumberOneToNine(),
             correct: null,
-            redrawCount: 5
+            redrawCount: 5,
+            doneStatus: null
         }
     },
 
-    randomNumberOneToNine: function(){
+    randomNumberOneToNine: function () {
         return Math.floor(Math.random() * (9 - 1 + 1) + 1)
     },
 
@@ -54,7 +55,7 @@ var PlayNineGame = React.createClass({
     },
 
     redraw: function () {
-        if(this.state.redrawCount < 1) { return; }
+        if (this.state.redrawCount < 1) { return; }
 
         this.setState({
             redrawCount: this.state.redrawCount - 1,
@@ -70,6 +71,16 @@ var PlayNineGame = React.createClass({
         var numberOfStars = this.state.numberOfStars;
         var correct = this.state.correct;
         var redrawCount = this.state.redrawCount;
+        var doneStatus = this.state.doneStatus;
+
+        var bottomFrame;
+
+        if (doneStatus) {
+            bottomFrame = <PlayNineDoneFrame doneStatus={ doneStatus } />;
+        }
+        else {
+            bottomFrame = <PlayNineNumbersFrame selectedNumbers={ selectedNumbers } selectNumber={ this.selectNumber } usedNumbers={ usedNumbers } />;
+        }
 
         return (
             <div>
@@ -77,7 +88,7 @@ var PlayNineGame = React.createClass({
                 <PlayNineStarsFrame numberOfStars={ numberOfStars } />
                 <PlayNineButtonFrame selectedNumbers={ selectedNumbers } checkAnswer={ this.checkAnswer } correct={ correct } acceptAnswer={this.acceptAnswer} redraw={ this.redraw } redrawCount= { redrawCount } />
                 <PlayNineAnswerFrame selectedNumbers={ selectedNumbers } unSelectNumber={ this.unSelectNumber } />
-                <PlayNineNumbersFrame selectedNumbers={ selectedNumbers } selectNumber={ this.selectNumber } usedNumbers={ usedNumbers } />
+                { bottomFrame }
             </div>
         )
     }
