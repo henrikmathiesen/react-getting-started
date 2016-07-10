@@ -20,20 +20,23 @@ var CardComponent = React.createClass({
             })
             .catch(function (error) {
                 console.log(error);
+                component.setState({ 
+                    cardOutLine: '2px solid red'
+                });
             });
     },
 
-    removeCard: function(){
-        this.props.removeCard(this.props.index);
-    },
+    // Cant get delete to work, same problem as this guy: http://stackoverflow.com/questions/32658604/react-deleting-from-middle-of-list-removes-last-element-instead
+    // We get back to it some other time
+    // removeCard: function(){
+    //     this.props.removeCard(this.props.index);
+    // },
 
     render: function () {
         return (
             <div style={{ outline: this.state.cardOutLine, padding: '8px' }}>
                 <img src={ this.state.user.avatar_url } style={{ width: '120px', height: 'auto' }} />
                 <h3>{ this.state.user.name }</h3>
-                <br />
-                <div onClick={ this.removeCard }>REMOVE</div>
             </div>
         )
     }
