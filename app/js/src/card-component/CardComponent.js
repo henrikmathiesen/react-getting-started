@@ -1,7 +1,10 @@
 var CardComponent = React.createClass({
 
     getInitialState: function () {
-        return {};
+        return {
+            user: {},
+            cardOutLine: ''
+        };
     },
 
     // correct hook for fetching ajax data; http://busypeoples.github.io/post/react-component-lifecycle/
@@ -10,18 +13,27 @@ var CardComponent = React.createClass({
 
         axios.get('https://api.github.com/users/' + this.props.login)
             .then(function (response) {
-                component.setState(response.data);
+                component.setState({ 
+                    user: response.data,
+                    cardOutLine: response.data.public_repos > 0 ? '2px solid olive' : '2px solid red'
+                });
             })
             .catch(function (error) {
                 console.log(error);
             });
     },
 
+    removeCard: function(){
+        this.props.removeCard(this.props.index);
+    },
+
     render: function () {
         return (
-            <div style={{ outline: '2px solid gold', padding: '8px' }}>
-                <img src={ this.state.avatar_url } style={{ width: '120px', height: 'auto' }} />
-                <h3>{ this.state.name }</h3>
+            <div style={{ outline: this.state.cardOutLine, padding: '8px' }}>
+                <img src={ this.state.user.avatar_url } style={{ width: '120px', height: 'auto' }} />
+                <h3>{ this.state.user.name }</h3>
+                <br />
+                <div onClick={ this.removeCard }>REMOVE</div>
             </div>
         )
     }

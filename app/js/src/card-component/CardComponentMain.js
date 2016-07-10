@@ -9,13 +9,22 @@ var CardComponentMain = React.createClass({
     submitLoginName: function(loginName){
         var newLogins = this.state.logins;
         newLogins.push(loginName);
-        
+
+        this.setState({ logins: newLogins });
+    },
+
+    removeLogin: function(index){
+        var newLogins = this.state.logins;
+        newLogins.splice(index, 1);
+
         this.setState({ logins: newLogins });
     },
 
     render: function () {
+        var component = this;
+
         var cards = this.state.logins.map(function(login, index){
-            return (<CardComponent key={index} login={login} />)
+            return (<CardComponent key={ index } index={ index } login={ login } removeCard={ component.removeLogin } />)
         });
 
         // ^ same as:
