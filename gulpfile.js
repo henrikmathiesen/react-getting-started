@@ -40,6 +40,11 @@ var jsAppSrc = [
         jsAppSrcRoot + '/card-component/CardFormComponent.js',
         jsAppSrcRoot + '/card-component/CardComponent.js',
         jsAppSrcRoot + '/card-component/CardComponentMain.js',
+        jsAppSrcRoot + '/play-nine/PlayNineStarsFrame.js',
+        jsAppSrcRoot + '/play-nine/PlayNineAnswerFrame.js',
+        jsAppSrcRoot + '/play-nine/PlayNineButtonFrame.js',
+        jsAppSrcRoot + '/play-nine/PlayNineNumbersFrame.js',
+        jsAppSrcRoot + '/play-nine/PlayNineGame.js',
         jsAppSrcRoot + '/**/*.js'
     ];
 var bldFolder = './app/js/bld';
