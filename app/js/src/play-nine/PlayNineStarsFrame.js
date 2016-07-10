@@ -6,15 +6,15 @@ var PlayNineStarsFrame = React.createClass({
 
     render: function(){
         var numberOfStars = this.getRandomNumberFromOneToNine();
-        var starsMarkUp = [];
+        var starsMarkup = [];
 
         for(i = 1; i <= numberOfStars; i+=1) {
-            starsMarkUp.push(<span key={i} className="fa fa-4x fa-star"></span>);
+            starsMarkup.push(<span key={i} className="fa fa-4x fa-star"></span>);
         }
 
         return(
             <div>
-                { starsMarkUp }
+                { starsMarkup }
             </div>
         )
     }
