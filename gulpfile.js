@@ -18,12 +18,14 @@ var isProduction = (argv.prod) ? (true) : (false);
 // Sources
 
 var jsLibSrcDev = [
+    './bower_components/axios/dist/axios.js',
     './bower_components/react/react.js',
     './bower_components/react/react-dom.js'
 ];
 
 // React complains about minifying the normal react files, we must use their minified versions (its "better"), so we set it up like this
 var jsLibSrcProd = [
+    './bower_components/axios/dist/axios.min.js',
     './bower_components/react/react.min.js',
     './bower_components/react/react-dom.min.js'
 ];
@@ -35,6 +37,9 @@ var jsAppSrc = [
         jsAppSrcRoot + '/your-first-component/Button.js', 
         jsAppSrcRoot + '/your-first-component/Result.js',
         jsAppSrcRoot + '/your-first-component/Main.js',
+        jsAppSrcRoot + '/card-component/CardFormComponent.js',
+        jsAppSrcRoot + '/card-component/CardComponent.js',
+        jsAppSrcRoot + '/card-component/CardComponentMain.js',
         jsAppSrcRoot + '/**/*.js'
     ];
 var bldFolder = './app/js/bld';

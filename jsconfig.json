@@ -1,5 +1,6 @@
 {
     "files": [
-        "typings/react/react.d.ts"
+        "typings/react/react.d.ts",
+        "typings/axios/axios.d.ts"
     ]
 }
