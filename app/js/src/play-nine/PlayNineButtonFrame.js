@@ -1,9 +1,11 @@
 var PlayNineButtonFrame = React.createClass({
 
    render: function(){
+       var disabled = this.props.selectedNumbers.length === 0;
+
         return(
             <div>
-                <button>=</button>
+                <button disabled={disabled}>=</button>
             </div>
         )
     }
