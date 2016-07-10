@@ -65,6 +65,23 @@ var PlayNineGame = React.createClass({
         });
     },
 
+    possibleSolutions: function(){
+        
+    },
+
+    updateDoneStatus: function () {
+        if (this.state.usedNumbers === 9) {
+            this.setState({
+                doneStatus: "You made it!"
+            });
+        }
+        else if(this.state.redrawCount < 1 && !this.possibleSolutions()) {
+            this.setState({
+                doneStatus: "Game Over!"
+            });
+        }
+    },
+
     render: function () {
         var selectedNumbers = this.state.selectedNumbers;
         var usedNumbers = this.state.usedNumbers;
