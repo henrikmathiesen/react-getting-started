@@ -40,6 +40,7 @@ var jsAppSrc = [
         jsAppSrcRoot + '/card-component/CardFormComponent.js',
         jsAppSrcRoot + '/card-component/CardComponent.js',
         jsAppSrcRoot + '/card-component/CardComponentMain.js',
+        jsAppSrcRoot + '/card-component/possibleCombinationSum.js',
         jsAppSrcRoot + '/play-nine/PlayNineStarsFrame.js',
         jsAppSrcRoot + '/play-nine/PlayNineAnswerFrame.js',
         jsAppSrcRoot + '/play-nine/PlayNineButtonFrame.js',

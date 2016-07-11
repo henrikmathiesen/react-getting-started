@@ -51,7 +51,7 @@ var PlayNineGame = React.createClass({
             selectedNumbers: [],
             numberOfStars: this.randomNumberOneToNine(),
             correct: null
-        })
+        }, this.updateDoneStatus)
     },
 
     redraw: function () {
@@ -62,20 +62,33 @@ var PlayNineGame = React.createClass({
             numberOfStars: this.randomNumberOneToNine(),
             correct: null,
             selectedNumbers: []
-        });
+        }, this.updateDoneStatus);
     },
 
-    possibleSolutions: function(){
-        
+    possibleSolutions: function () {
+        var numberOfStars = this.state.numberOfStars;
+        var possibleNumbers = [];
+        var usedNumbers = this.state.usedNumbers;
+
+        for (i = 1; i <= 9; i += 1) { 
+            // if number does not exist in usedNumbers, include it in possibleNumbers
+            if(usedNumbers.indexOf(i) === -1) {
+                possibleNumbers.push(i);
+            }
+        }
+
+        // Does the possibleNumbers have any combination that equals up to the number of stars?
+        return possibleCombinationSum(possibleNumbers, numberOfStars);
     },
 
+    // This function is called from acceptAnswer and redraw, after setState is done (setState is technically async)
     updateDoneStatus: function () {
-        if (this.state.usedNumbers === 9) {
+        if (this.state.usedNumbers.length === 9) {
             this.setState({
                 doneStatus: "You made it!"
             });
         }
-        else if(this.state.redrawCount < 1 && !this.possibleSolutions()) {
+        else if (this.state.redrawCount < 1 && !this.possibleSolutions()) {
             this.setState({
                 doneStatus: "Game Over!"
             });
