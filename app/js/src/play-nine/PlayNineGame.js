@@ -95,6 +95,10 @@ var PlayNineGame = React.createClass({
         }
     },
 
+    resetGame: function(){
+        this.replaceState(this.getInitialState());
+    },
+
     render: function () {
         var selectedNumbers = this.state.selectedNumbers;
         var usedNumbers = this.state.usedNumbers;
@@ -106,7 +110,7 @@ var PlayNineGame = React.createClass({
         var bottomFrame;
 
         if (doneStatus) {
-            bottomFrame = <PlayNineDoneFrame doneStatus={ doneStatus } />;
+            bottomFrame = <PlayNineDoneFrame doneStatus={ doneStatus } resetGame={ this.resetGame } />;
         }
         else {
             bottomFrame = <PlayNineNumbersFrame selectedNumbers={ selectedNumbers } selectNumber={ this.selectNumber } usedNumbers={ usedNumbers } />;
