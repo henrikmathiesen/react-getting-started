@@ -32,7 +32,7 @@ var jsLibSrcProd = [
 
 var jsLibSrc = isProduction ? jsLibSrcProd : jsLibSrcDev;
 
-var jsAppSrcRoot = './app/js/src'; 
+var jsAppSrcRoot = './app/js'; 
 var jsAppSrc = [
         jsAppSrcRoot + '/your-first-component/Button.js', 
         jsAppSrcRoot + '/your-first-component/Result.js',
@@ -49,7 +49,7 @@ var jsAppSrc = [
         jsAppSrcRoot + '/play-nine/PlayNineGame.js',
         jsAppSrcRoot + '/**/*.js'
     ];
-var bldFolder = './app/js/bld';
+var bldFolder = './bld';
 
 //
 // Tasks
