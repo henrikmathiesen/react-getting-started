@@ -2,4 +2,4 @@
 
 React Getting Started, ES5, following a Pluralsight course:
 
-https://app.pluralsight.com/library/courses/react-js-getting-started/table-of-contents
+https://app.pluralsight.com/library/courses/react-js-getting-started
