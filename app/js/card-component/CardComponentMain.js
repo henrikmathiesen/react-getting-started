@@ -2,7 +2,7 @@ var CardComponentMain = React.createClass({
 
     getInitialState: function () {
         return {
-            logins: ['petehunt', 'OdeToCode', 'henrikmathiesen']
+            logins: ['petehunt', 'OdeToCode', 'pecka']
         };
     },
 
