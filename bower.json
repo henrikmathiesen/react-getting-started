@@ -1,12 +1,12 @@
 {
-  "name": "reactgettingstarted",
+  "name": "react-getting-started",
   "description": "React Getting Started, ES5, following Pluralsight course:",
   "main": "index.js",
   "authors": [
     "Henrik <henrik_mathiesen@hotmail.com>"
   ],
   "license": "ISC",
-  "homepage": "https://github.com/henrikmathiesen/reactGettingStarted",
+  "homepage": "https://github.com/henrikmathiesen/react-getting-started",
   "ignore": [
     "**/.*",
     "node_modules",
@@ -15,7 +15,7 @@
     "tests"
   ],
   "dependencies": {
-    "react": "^15.2.1",
-    "axios": "^0.12.0"
+    "react": "15.2.1",
+    "axios": "0.12.0"
   }
 }
