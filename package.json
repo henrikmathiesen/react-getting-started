@@ -1,5 +1,5 @@
 {
-  "name": "reactgettingstarted",
+  "name": "react-getting-started",
   "version": "1.0.0",
   "description": "React Getting Started, ES5, following Pluralsight course:",
   "main": "index.js",
@@ -8,22 +8,22 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/henrikmathiesen/reactGettingStarted.git"
+    "url": "git+https://github.com/henrikmathiesen/react-getting-started.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/henrikmathiesen/reactGettingStarted/issues"
+    "url": "https://github.com/henrikmathiesen/react-getting-started/issues"
   },
-  "homepage": "https://github.com/henrikmathiesen/reactGettingStarted#readme",
+  "homepage": "https://github.com/henrikmathiesen/react-getting-started#readme",
   "dependencies": {
-    "babel-preset-react": "^6.11.1",
-    "gulp": "^3.9.1",
-    "gulp-babel": "^6.1.2",
-    "gulp-concat": "^2.6.0",
-    "gulp-if": "^2.0.1",
-    "gulp-sourcemaps": "^1.6.0",
-    "gulp-uglify": "^1.5.4",
-    "yargs": "^4.7.1"
+    "babel-preset-react": "6.11.1",
+    "gulp": "3.9.1",
+    "gulp-babel": "6.1.2",
+    "gulp-concat": "2.6.0",
+    "gulp-if": "2.0.1",
+    "gulp-sourcemaps": "1.6.0",
+    "gulp-uglify": "1.5.4",
+    "yargs": "4.7.1"
   }
 }
