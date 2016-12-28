@@ -1,4 +1,4 @@
-# reactGettingStarted
+# React Getting Started
 
 React Getting Started, ES5, following a Pluralsight course:
 
